@@ -1,4 +1,6 @@
-const { Client, Intents } = require('discord.js');
+const { Client, Intents } = require('discord.js')
+const config = require('./config.js')
+
 const client = new Client({
   intents: [
     Intents.FLAGS.GUILDS,
@@ -10,12 +12,12 @@ const client = new Client({
 });
 
 client.on('ready', () => {
-  console.log(`Logged in as ${client.user.tag}!`);
+  console.log(`Logged in as ${client.user.tag}!`)
 });
 
-const prefix = "!"
+const prefix = config.prefix
 
-client.on('message', message => {
+client.on('messageCreate', message => {
   if (message.content === prefix + 'ping') {
     message.reply('pong');
   }
@@ -23,7 +25,7 @@ client.on('message', message => {
 
 client.on('guildMemberAdd', member => {
   console.log('s')
-  client.channels.cache.get('880624848559308820').send(`Welcome to SLUG, <@${member.id}>!\nhttps://tenor.com/view/penguins-dance-cool-moves-funny-gif-15070731`)
+  client.channels.cache.get(config.welcomeChannel).send(`Welcome to SLUG, <@${member.id}>!\nhttps://tenor.com/view/penguins-dance-cool-moves-funny-gif-15070731`)
 })
 
-client.login('token');
+client.login(config.token)
