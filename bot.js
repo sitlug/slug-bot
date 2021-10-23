@@ -15,14 +15,10 @@ client.on('ready', () => {
   console.log(`Logged in as ${client.user.tag}!`)
 });
 
+//command prefix
 const prefix = config.prefix
 
-client.on('messageCreate', message => {
-  if (message.content === prefix + 'ping') {
-    message.reply('pong');
-  }
-});
-
+//funny penguin new member message
 client.on('guildMemberAdd', member => {
   console.log('s')
   client.channels.cache.get(config.welcomeChannel).send(`Welcome to SLUG, <@${member.id}>!\nhttps://tenor.com/view/penguins-dance-cool-moves-funny-gif-15070731`)
