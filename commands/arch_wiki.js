@@ -1,6 +1,4 @@
 const { SlashCommandBuilder } = require('@discordjs/builders');
-const http = require('http');
-const { REPL_MODE_SLOPPY } = require('repl');
 
 module.exports = {
     data: new SlashCommandBuilder()
