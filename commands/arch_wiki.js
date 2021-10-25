@@ -11,6 +11,6 @@ module.exports = {
     async execute(interaction){
         const topic = interaction.options.getString('topic')
         var url = `http://wiki.archlinux.org/index.php/Special:Search/${topic}`;
-        await interaction.reply(`[Arch Wiki Link for ${topic}](${url})`);
+        await interaction.reply(`[Arch Wiki page for ${topic}](${url})`);
     },
 };
